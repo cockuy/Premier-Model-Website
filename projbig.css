@@ -1,0 +1,554 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color:#F8F8F8;
+}
+#main{
+height:110%;
+width:100%;
+
+position:relative;/*Even if you push a relative element 100px away,
+ the empty space it originally occupied remains exactly where it was*/
+padding-top: 1px;/*css bug ko htane ke liye  see video phone*/
+
+}@font-face {
+    font-family: monument;
+    src: url(MonumentExtended-Ultrabold.otf);
+}
+
+#nav{
+    height: 10vh;
+    width:100%;
+    
+  margin-top:40px;
+  border-top:2px solid black;
+  border-bottom:2px solid black;
+ display:flex;
+ align-items: center;
+ justify-content: space-between;
+}
+@font-face {
+    font-family: monument;
+    src: url(MonumentExtended-Ultrabold.otf);
+}
+#nav h1{
+    
+    height:100%;
+    width:20% ;
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   font-family: 'monument' ;
+   font-size: 47px;
+   letter-spacing: -1px;/*kyunki chipkr chipkr likha design mein toh hsmein bhi chipka diye*/
+position: relative;
+}
+#nav h2{
+    
+    height:100%;
+    width:22% ;
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   border-right: 2px solid black;
+   font-weight:600;
+   font-size: 26px;
+    font-family: 'gilroy';
+
+}
+
+#nav h1::after {
+    content: "©";
+    font-family: 'gilroy';
+    font-weight: 600;
+    font-size: 26px;
+    position: absolute;
+    top: 22%;
+    right: 21%;
+}
+
+#nav h1::before {
+    content: "model management";
+    font-family: 'gilroy';
+    font-weight: 600;
+    color: #666;
+    font-size: 18px;
+    letter-spacing: 0.1px;
+    position: absolute;
+    bottom: 19%;
+    right: 23%;
+}
+
+#nav h2:nth-last-child(1){
+    width:10%; /*width kam kri taaki ka jagah le last walal right in nav but
+                baaki elemnts nav walon ki width badao tabh baaki bhi adjust honge
+                isss change ke liye */
+        
+}
+#center{
+    height:90%;
+    width:100%;
+   
+    padding:4vw;
+}
+#content{
+    height:100%;
+    width:100%;
+    background-color: rgb(17, 16, 102);
+    position: relative;
+}
+
+#content video{
+    height:100%; /*abh 100% diya as content ka % hai ye and bachne ke liye 
+                  content ki dimension bnadi joh center ka % lera and 
+                  jitna chahiye utna hi */
+    width:100%;
+object-fit:cover  ; /*isne pura div cover krliya taaki shi dikhe */
+   
+}
+#overlayofvideo{
+    height:47%;
+    width:100%;
+    
+    
+    position: absolute;
+    bottom:0; /* bilkul center div ke end tak jara tha neeche ki side
+The CSS rule bottom: 0; places the bottom edge of a positioned element exactly at the bottom edge of its containing block(here content).
+However, bottom: 0; does not work on its own. It requires the element to have a defined position property (like absolute, fixed, or sticky*/
+    
+padding: 2vw;
+/* backdrop-filter: blur(6px); 
+ye blur effect dlata jaise aadhi vide ope deikha skete tagda hoga*/
+}
+#over1{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#over1 h1{
+font-family: 'monument' ;
+font-size: 3.6vw;
+color: white;
+margin-bottom: 1vw;
+}
+#over1 h2{
+font-size: 1vw;
+color: white;
+border: 2px solid white; /*just to add border like circle ka circumfernce jaisi fencing*/
+border-radius: 50%;
+padding:2vw 2.4vw; /*usd to control the size of circle*/
+
+}
+#over2{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid white;
+    padding:1vw 0vw;
+}
+#over2 h4{
+    font-size: 1.3vw;
+    color: white;
+    font-weight:500;
+}
+#scroll{
+   margin-top: 2vw;
+    height:40vh;
+    width:100%;
+
+    white-space:nowrap; /*abh sara content side pe agya and siplay inline wahan ig lata */
+   overflow-y: hidden;
+   overflow-x: hidden;
+
+}
+#container{
+    height:100%;
+    width:120%;
+    
+    display:inline-block;/*in this 
+    the display of contaier ek line mein hi ayrga  horizontally*/
+   
+    /*we could have used flex but woh sala shrink krdeta see previous project*/
+    padding: 0.5vw;
+    animation-name:anime;
+    animation-duration: 10.5s; /*more sec wala time utna slow chlega*/
+    animation-iteration-count: infinite;
+}
+#scroll img{
+    height:80%;
+    border-radius:50% / 60%;
+    width:15%;
+    object-fit: cover;
+    object-position:top;/*ye set krta ki iamge kahan center of focus rehga
+
+   abh potrait thi toh face upar tha theferore object position top*/
+ margin: 1vw; /*this allows every pART OF img is visiBLE*/
+
+}
+#container .img2{ /* #name(div ke andar) .class name {} aise target*/
+    object-position:center;
+   
+
+}
+#container .img3{ /* #name(div ke andar) .class name {} aise target*/
+    object-position:center;
+   
+
+}
+
+@keyframes anime{
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translateX(-100%);
+        /* move the element horizontally from its original position to the left by 
+        100% of its own width. (tabhi right tak iameges bnayi thi ye left tak jayengi)
+    */
+}
+}
+/* =========================
+   ALPHABET SECTION
+========================= */
+
+#alphabet {
+    min-height: 11vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8vw;
+    padding: 1vw;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#alphabet h5 {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 3px;
+    border-bottom: 2px solid black;
+    margin-right: 1vw;
+}
+
+#alphabet h6 {
+    font-size: 1vw;
+    font-weight: 400;
+    font-style: italic;
+    padding: 0.5vw 0.7vw;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#alphabet h6:hover {
+    border-color: black;
+}
+
+
+/* =========================
+   PAGE 2
+========================= */
+
+#page2 {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4%;
+    padding: 4vw 5vw;
+}
+
+#page2-part1 {
+    height: 80vh;
+    width: 50%;
+    background-image: url("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=1000");
+    background-size: cover;
+    background-position: center;
+}
+
+#page2-part2 {
+    width: 46%;
+}
+
+#page2-part2 img {
+    display: block;
+    height: 65vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#page2-text {
+    padding-top: 1.5vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+#page2-text h2 {
+    font-size: 2vw;
+    max-width: 40%;
+}
+
+#page2-text p {
+    font-size: 1.1vw;
+    max-width: 55%;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   UPDATES SECTION
+========================= */
+
+#page3 {
+    min-height: 100vh;
+    width: 100%;
+    padding: 5vw 4vw;
+}
+
+#page3 > h1 {
+    text-align: center;
+    font-family: monument;
+    text-transform: uppercase;
+    font-size: 3vw;
+    margin-bottom: 7vh;
+}
+
+.elem {
+    min-height: 15.5vh;
+    width: 100%;
+    border-top: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vw 2vw;
+    position: relative;
+    transition: background-color 0.4s ease;
+}
+
+.elem:last-child {
+    border-bottom: 2px solid black;
+}
+
+.elem:hover {
+    background-color: #dedede;
+}
+
+.elem img {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 12%;
+    border-radius: 50%;
+    opacity: 0;
+    object-fit: cover;
+    object-position: top;
+    transition: all 0.5s ease;
+}
+
+.elem:hover img {
+    opacity: 1;
+    left: 24%;
+}
+
+.elem h4 {
+    font-size: 1.1vw;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 15%;
+}
+
+.elem .elem-part2 {
+    width: 45%;
+}
+
+.elem-part2 h1 {
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+
+.elem-part2 h5 {
+    font-size: 0.8vw;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   ANIMATED MARQUEE
+========================= */
+
+#marque {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 1vw 0;
+}
+
+#marque h1 {
+    display: inline-block;
+    font-size: 3vw;
+    text-transform: uppercase;
+    font-weight: 900;
+    -webkit-text-stroke: 1.5px black;
+    color: transparent;
+    letter-spacing: 3px;
+    font-family: monument;
+    margin-right: 16px;
+    animation: move 4s linear infinite;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 16px));
+    }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+#footer {
+    min-height: 30vh;
+    width: 100%;
+    padding: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+
+#footer h1 {
+    font-family: monument;
+    font-size: 3vw;
+}
+
+#footer p {
+    margin-top: 1vw;
+    font-size: 1.2vw;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+    #alphabet {
+        gap: 1vw;
+        padding: 4vw 2vw;
+    }
+
+    #alphabet h5 {
+        font-size: 4vw;
+    }
+
+    #alphabet h6 {
+        font-size: 3vw;
+        padding: 1.5vw;
+    }
+
+    #page2 {
+        min-height: auto;
+        flex-direction: column;
+        gap: 5vw;
+        padding: 5vw;
+    }
+
+    #page2-part1 {
+        height: 65vh;
+        width: 100%;
+    }
+
+    #page2-part2 {
+        width: 100%;
+    }
+
+    #page2-part2 img {
+        height: 55vh;
+    }
+
+    #page2-text h2 {
+        font-size: 5vw;
+    }
+
+    #page2-text p {
+        font-size: 3.5vw;
+    }
+
+    #page3 {
+        min-height: auto;
+        padding: 10vw 5vw;
+    }
+
+    #page3 > h1 {
+        font-size: 7vw;
+        margin-bottom: 5vh;
+    }
+
+    .elem {
+        min-height: 12vh;
+        padding: 3vw;
+    }
+
+    .elem img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .elem h4 {
+        font-size: 2.5vw;
+        width: 20%;
+    }
+
+    .elem .elem-part2 {
+        width: 55%;
+    }
+
+    .elem-part2 h1 {
+        font-size: 4vw;
+    }
+
+    .elem-part2 h5 {
+        font-size: 2vw;
+    }
+
+    #marque h1 {
+        font-size: 7vw;
+    }
+
+    #footer h1 {
+        font-size: 7vw;
+    }
+
+    #footer p {
+        font-size: 3.5vw;
+    }
+}
